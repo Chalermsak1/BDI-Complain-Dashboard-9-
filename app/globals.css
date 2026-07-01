@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "leaflet/dist/leaflet.css";
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary:   #0057FF;
+  --color-secondary: #00C2CB;
+  --color-success:   #00B37E;
+  --color-warning:   #E8960C;
+  --color-danger:    #E5484D;
+  --color-violet:    #7B2FFF;
+  --color-page:      #F0F4F8;
+  --color-card:      #FFFFFF;
+  --color-border:    #E2E8F0;
+  --color-tx-dark:   #0D1117;
+  --color-tx-mid:    #334155;
+  --color-tx-soft:   #94A3B8;
+  --color-tx-xsoft:  #CBD5E1;
+}
+
+body {
+  font-family: 'Inter', 'Sarabun', sans-serif;
+  background-color: #F0F4F8;
+  color: #0D1117;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 3px; }
+
+/*
+ * Dark mode — best-effort override
+ * โปรเจกต์นี้เขียนสี hex ตรงๆ ในแต่ละ component (เช่น bg-[#FFFFFF])
+ * แทนที่จะใช้ theme token ทุกที่ จึงไม่สามารถสลับธีมแบบสมบูรณ์ 100% ได้
+ * ส่วนนี้ override surface หลักๆ ที่ใช้บ่อยที่สุดในแอป (พื้นหลัง, การ์ด, border, ตัวอักษร)
+ * กราฟ (recharts) และสีเฉพาะจุดบางที่อาจยังคงสีเดิมไว้
+ */
+.dark body { background-color: #0B0F17; color: #E2E8F0; }
+
+.dark .bg-white            { background-color: #131A26 !important; }
+.dark .bg-\[\#F8FAFC\]      { background-color: #0F1620 !important; }
+.dark .bg-\[\#F0F4F8\]      { background-color: #0B0F17 !important; }
+.dark .bg-\[\#0D1117\]      { background-color: #060A12 !important; }
+
+.dark .border-\[\#E2E8F0\]  { border-color: #1F2937 !important; }
+.dark .border-\[\#F1F5F9\]  { border-color: #1F2937 !important; }
+
+.dark .text-\[\#0D1117\]    { color: #F1F5F9 !important; }
+.dark .text-\[\#334155\]    { color: #CBD5E1 !important; }
+.dark .text-\[\#64748B\]    { color: #94A3B8 !important; }
+
+.dark ::-webkit-scrollbar-thumb { background: #1F2937; }

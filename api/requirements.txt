@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pandas
+openpyxl
+scikit-learn
+pythainlp
+numpy
+python-multipart
+anthropic
+requests
